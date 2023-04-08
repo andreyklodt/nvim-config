@@ -5,6 +5,13 @@ lsp.preset("recommended")
 lsp.ensure_installed({
   'tsserver',
   'rust_analyzer',
+  'lua_ls',
+  'vimls',
+  'dockerls',
+  'dotls',
+  'jsonls',
+  'cssmodules_ls',
+  'cssmodules_ls'
 })
 
 -- Fix Undefined global 'vim'
@@ -38,10 +45,10 @@ lsp.setup_nvim_cmp({
 lsp.set_preferences({
     suggest_lsp_servers = false,
     sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
+        error = 'So',
+        warn = 'Wa',
+        hint = 'Hi',
+        info = 'In'
     }
 })
 
