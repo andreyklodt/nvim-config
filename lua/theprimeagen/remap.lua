@@ -1,15 +1,14 @@
-
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex) -- open folder
 
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- swap current line with +1k
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- swap current line with +1j
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")  -- swap current line with +1k
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")  -- swap current line with +1j
 
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz") -- move down and zz
 vim.keymap.set("n", "<C-u>", "<C-u>zz") -- move up and zz
-vim.keymap.set("n", "n", "nzzzv") -- vertical and horizontal orientation on next
-vim.keymap.set("n", "N", "Nzzzv") -- same on prev
+vim.keymap.set("n", "n", "nzzzv")       -- vertical and horizontal orientation on next
+vim.keymap.set("n", "N", "Nzzzv")       -- same on prev
 
 vim.keymap.set("n", "<leader>vwm", function()
     require("vim-with-me").StartVimWithMe()
@@ -22,10 +21,10 @@ end)
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]]) -- copy whole line
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
@@ -50,3 +49,12 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
+vim.keymap.set("n", "<leader>bb", "<C-^>")
+
+-- matching brace
+vim.keymap.set("i", "[", "[]<Esc>i")
+vim.keymap.set("i", "{", "{}<Esc>i")
+vim.keymap.set("i", "(", "()<Esc>i")
+vim.keymap.set("i", '"', '""<Esc>i')
+vim.keymap.set("i", "'", "''<Esc>i")
+vim.keymap.set("i", "<", "<><Esc>i")

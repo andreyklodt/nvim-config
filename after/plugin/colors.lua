@@ -8,7 +8,7 @@ require('gruvbox').setup({
     contrast = "hard",
     transparent_mode = true,
     invert_tabline = false,
-    invert_signs = true, -- знаки слева w, e
+    invert_signs = false, -- знаки слева w, e
 })
 
 function ColorMyPencils(color)

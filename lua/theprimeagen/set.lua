@@ -34,3 +34,6 @@ vim.opt.colorcolumn = "80"
 
 vim.opt.clipboard="unnamed"
 
+-- gui cursor
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
+
