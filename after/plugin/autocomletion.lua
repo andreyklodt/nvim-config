@@ -2,17 +2,6 @@ local status, cmp = pcall(require, "cmp")
 if (not status) then return end
 local lspkind = require 'lspkind'
 local ls = require 'luasnip'
-local snip = ls.snippet
-local node = ls.snippet_node
-local text = ls.text_node
-local insert = ls.insert_node
-local func = ls.function_node
-local choice = ls.choice_node
-local dynamicn = ls.dynamic_node
-
-local date = function() return { os.date('%Y-%m-%d') } end
-
--- luasnip custom snippets
 
 cmp.setup({
     snippet = {
@@ -20,19 +9,6 @@ cmp.setup({
             ls.lsp_expand(args.body)
             ls.filetype_extend("javascript", { "javascriptreact" })
             ls.filetype_extend("javascript", { "html" })
-
-
-            ls.add_snippets("all", {
-                all = {
-                    snip({
-                        trig = "date",
-                        namr = "Date",
-                        dscr = "Date in the form of YYYY-MM-DD",
-                    }, {
-                        func(function() return { "fuck you" } end, {}),
-                    }),
-                },
-            })
         end,
     },
     -- add c-Space in visual mode
@@ -59,3 +35,44 @@ vim.cmd [[
   set completeopt=menuone,noinsert,noselect
   highlight! default link CmpItemKind CmpItemMenuDefault
 ]]
+
+-- luasnip config
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets/" })
+
+ls.config.set_config({
+    history = true,
+    updateevents = "TextChanged, TextChangedI",
+    enable_autosnippets = true,
+    ext_opts = {
+        [require("luasnip.util.types").choiceNode] = {
+            active = {
+                virt_text = { { "●", "GruvboxOrange" } }
+            }
+        }
+    }
+})
+
+vim.keymap.set({"i", "s"}, "<a-p>", function ()
+    if ls.expand_or_jumpable() then
+        ls.expand()
+    end
+end)
+
+vim.keymap.set({"i", "s"}, "<a-j>", function ()
+    if ls.expand_or_jumpable(-1) then
+        ls.expand(-1)
+    end
+end)
+
+vim.keymap.set({"i", "s"}, "<a-l>", function ()
+    if ls.expand_or_jumpable() then
+        ls.expand(1)
+    end
+end)
+
+vim.keymap.set({"i", "s"}, "<a-h>", function ()
+    if ls.expand_or_jumpable() then
+        ls.expand(-1)
+    end
+end)
+
