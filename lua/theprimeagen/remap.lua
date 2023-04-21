@@ -52,9 +52,10 @@ end)
 vim.keymap.set("n", "<leader>bb", "<C-^>")
 
 -- matching brace
-vim.keymap.set("i", "[", "[]<Esc>i")
-vim.keymap.set("i", "{", "{}<Esc>i")
+vim.keymap.set("i", "[", "[<CR>]<Esc>ko")
+vim.keymap.set("i", "{", "{<CR>}<Esc>ko")
 vim.keymap.set("i", "(", "()<Esc>i")
 vim.keymap.set("i", '"', '""<Esc>i')
 vim.keymap.set("i", "'", "''<Esc>i")
+vim.keymap.set("i", "`", "``<Esc>i")
 vim.keymap.set("i", "<", "<><Esc>i")
